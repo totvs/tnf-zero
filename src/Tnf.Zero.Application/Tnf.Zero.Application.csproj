@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Tnf.Zero.Application</AssemblyName>
+    <PackageId>Tnf.Architecture.Application</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>Tnf.Zero.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Tnf.Zero.EntityFrameworkCore\Tnf.Zero.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Tnf.Zero.Mapper\Tnf.Zero.Mapper.csproj" />
+  </ItemGroup>
+
+</Project>
