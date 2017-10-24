@@ -1,11 +1,10 @@
-﻿using Tnf.Zero.Application;
-using Tnf.Zero.Common;
-using Tnf.Zero.Domain;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Tnf.App.AspNetCore;
 using Tnf.App.Configuration;
 using Tnf.Modules;
+using Tnf.Zero.Application;
+using Tnf.Zero.Common;
 
 namespace Tnf.Zero.Web
 {
@@ -22,6 +21,8 @@ namespace Tnf.Zero.Web
 
         public override void PreInitialize()
         {
+            base.PreInitialize();
+
             var configuration = Configuration
                                     .Settings
                                     .FromJsonFiles(_env.ContentRootPath, $"appsettings.{_env.EnvironmentName}.json");
@@ -31,6 +32,8 @@ namespace Tnf.Zero.Web
 
         public override void Initialize()
         {
+            base.Initialize();
+
             IocManager.RegisterAssemblyByConvention<WebModule>();
         }
     }

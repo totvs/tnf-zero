@@ -13,6 +13,7 @@ namespace Tnf.Zero.Application
     {
         public override void Initialize()
         {
+            base.Initialize();
             IocManager.RegisterAssemblyByConvention<AppModule>();
         }
     }

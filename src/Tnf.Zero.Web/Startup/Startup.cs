@@ -29,7 +29,8 @@ namespace Tnf.Zero.Web
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.UseTnf(); //Initializes Tnf framework.
+            //Initializes Tnf framework
+            app.UseTnf();
 
             loggerFactory.AddDebug();
 

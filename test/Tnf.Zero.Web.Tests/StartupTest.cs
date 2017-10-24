@@ -21,7 +21,8 @@ namespace Tnf.Zero.Web.Tests.App
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            app.UseTnf(); //Initializes Tnf framework.
+            //Initializes Tnf framework
+            app.UseTnf();
 
             app.UseMvc(routes =>
             {
