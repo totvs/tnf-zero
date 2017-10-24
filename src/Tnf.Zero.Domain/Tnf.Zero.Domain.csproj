@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Tnf.Zero.Common\Tnf.Zero.Common.csproj" />
   </ItemGroup>
 
