@@ -22,7 +22,7 @@ namespace Tnf.Zero.Domain
                 new DictionaryBasedLocalizationSource(AppConsts.LocalizationSourceName,
                     new JsonEmbeddedFileLocalizationDictionaryProvider(
                         typeof(DomainModule).Assembly,
-                        "Tnf.Zero.Solution.Domain.Localization.SourceFiles"
+                        "Tnf.Zero.Domain.Localization.SourceFiles"
                     )
                 )
             );
@@ -32,7 +32,7 @@ namespace Tnf.Zero.Domain
                 new DictionaryBasedLocalizationSource(TnfAppConsts.LocalizationSourceName,
                     new JsonEmbeddedFileLocalizationDictionaryProvider(
                         typeof(DomainModule).Assembly,
-                        "Tnf.Zero.Solution.Domain.Localization.TnfSourceFiles"
+                        "Tnf.Zero.Domain.Localization.TnfSourceFiles"
                     )
                 )
             );
