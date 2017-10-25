@@ -20,7 +20,7 @@ namespace Tnf.Zero.Web
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
-
+            
             services.AddSwaggerGen();
 
             // Configure Tnf and Dependency Injection
@@ -50,14 +50,12 @@ namespace Tnf.Zero.Web
             {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
-
-            app.UseSwagger();
-            app.UseSwaggerUi(); //URL: /swagger/ui
-
+            
             app.UseSwagger((httpRequest, swaggerDoc) =>
             {
                 swaggerDoc.Host = httpRequest.Host.Value;
             });
+            app.UseSwaggerUi(); //URL: /swagger/ui
         }
     }
 }

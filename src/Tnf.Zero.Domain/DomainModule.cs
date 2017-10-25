@@ -41,6 +41,8 @@ namespace Tnf.Zero.Domain
         public override void Initialize()
         {
             base.Initialize();
+
+            // Register all the interfaces and its implmentations on this assembly
             IocManager.RegisterAssemblyByConvention<DomainModule>();
         }
     }

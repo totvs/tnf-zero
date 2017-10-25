@@ -23,10 +23,12 @@ namespace Tnf.Zero.Web
         {
             base.PreInitialize();
 
+            // Gets the configuration based on the settings json file
             var configuration = Configuration
                                     .Settings
-                                    .FromJsonFiles(_env.ContentRootPath, $"appsettings.{_env.EnvironmentName}.json");
+                                    .FromJsonFiles(_env.ContentRootPath, $"appsettings.json");
 
+            // Set the connectionstring
             Configuration.DefaultNameOrConnectionString = configuration.GetConnectionString(AppConsts.ConnectionStringName);
         }
 
@@ -34,6 +36,7 @@ namespace Tnf.Zero.Web
         {
             base.Initialize();
 
+            // Register all the interfaces and its implmentations on this assembly
             IocManager.RegisterAssemblyByConvention<WebModule>();
         }
     }

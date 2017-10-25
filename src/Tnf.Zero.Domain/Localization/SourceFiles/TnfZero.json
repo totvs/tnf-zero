@@ -1,27 +1,6 @@
 {
   "culture": "en",
   "texts": {
-    "ProfessionalMustHaveName": "Informe um valor para o campo Name",
-    "ProfessionalOutOfBoundName": "O campo Name excede o tamanho limite de 255",
-    "SpecialtyMustHaveDescription": "Informe um valor para o campo Description",
-    "SpecialtyOutOfBoundDescription": "O campo Description excede o tamanho limite de 100",
-    "CategoryMustHaveSys001Name": "Informe um valor para o campo Sys001Name",
-    "CategoryOutOfBoundSys001Name": "O campo Sys001Name excede o tamanho limite de 100",
-    "CategoryMustHaveName": "Informe um valor para o campo Name",
-    "CategoryOutOfBoundName": "O campo Name excede o tamanho limite de 100",
-    "ProfessionalOutOfBoundNickname": "O campo Nickname excede o tamanho limite de 100",
-    "ProfessionalInvalidDateOfBirth": "Informe uma valor valido para o campo DateOfBirth",
-    "ProfessionalInvalidDateOfDie": "Informe uma valor valido para o campo DateOfDie",
-    "ProfessionalMustHaveCategoryId": "Informe um valor para o campo CategoryId",
-    "ProfessionalsMustHaveName": "Informe um valor para o campo Name",
-    "ProfessionalsOutOfBoundName": "O campo Name excede o tamanho limite de 255",
-    "ProfessionalsOutOfBoundNickname": "O campo Nickname excede o tamanho limite de 100",
-    "ProfessionalsMustHaveSys001CategoryId": "Informe um valor para o campo Sys001CategoryId",
-    "ProfessionalsInvalidDateOfBirth": "Informe uma valor valido para o campo DateOfBirth",
-    "ProfessionalsInvalidDateOfDie": "Informe uma valor valido para o campo DateOfDie",
-    "SpecialtiesMustHaveDescription": "Informe um valor para o campo Description",
-    "SpecialtiesOutOfBoundDescription": "O campo Description excede o tamanho limite de 100",
-    "Sys001CategoryMustHaveSys001Name": "Informe um valor para o campo Sys001Name",
-    "Sys001CategoryOutOfBoundSys001Name": "O campo Sys001Name excede o tamanho limite de 100"
+
   }
 }

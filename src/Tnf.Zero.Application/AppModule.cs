@@ -14,6 +14,8 @@ namespace Tnf.Zero.Application
         public override void Initialize()
         {
             base.Initialize();
+
+            // Register all the interfaces and its implmentations on this assembly
             IocManager.RegisterAssemblyByConvention<AppModule>();
         }
     }
