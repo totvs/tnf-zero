@@ -2,28 +2,56 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using System.IO;
+using Tnf;
 
 namespace Tnf.Zero.Web
 {
     public class Program
     {
         public static void Main(string[] args)
+            => BuildWebHost(args).Run();
+
+        public static IWebHost BuildWebHost(string[] args)
         {
-            var config = new ConfigurationBuilder()
+            var hostingConfig = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                // When executing the command 'dotnet run' it will use this json to set the url
                 .AddJsonFile("hosting.json", optional: true)
-                // When passing the command 'dotnet run --urls "http://*:5052"' it will use this url
                 .AddCommandLine(args)
                 .Build();
 
             var host = WebHost.CreateDefaultBuilder(args)
-             .UseConfiguration(config)
-             .UseStartup<Startup>()
-             .Build();
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var env = hostingContext.HostingEnvironment;
 
-            host.Run();
+                    config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                          .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+
+                    config.AddEnvironmentVariables();
+                    config.AddCommandLine(args);
+
+                })
+                .ConfigureLogging((hostingContext, logging) =>
+                {
+                    logging.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+
+                    var env = hostingContext.HostingEnvironment;
+
+                    if (env.IsDevelopment())
+                    {
+                        logging.AddConsole();
+                        logging.AddDebug();
+                    }
+
+                    logging.AddFilter(LoggingEvents.FilterByTnfCategories);
+                })
+                .UseConfiguration(hostingConfig)
+                .UseStartup<Startup>()
+                .Build();
+
+            return host;
         }
     }
 }

@@ -1,10 +1,14 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using Tnf.App.AspNetCore;
-using Tnf.AspNetCore;
+using Tnf.Configuration;
+using Tnf.Zero.Common;
+using Tnf.Zero.Domain;
+using Tnf.Zero.EntityFrameworkCore;
+using Tnf.Zero.Mapper;
 
 namespace Tnf.Zero.Web
 {
@@ -20,28 +24,35 @@ namespace Tnf.Zero.Web
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
-            
-            services.AddSwaggerGen();
 
-            // Configure Tnf and Dependency Injection
-            return services.AddTnfApp<WebModule>();
+            services
+                .AddZeroDomain()
+                .AddZeroMapper()
+                .AddZeroEntityFrameworkCore()
+                .AddTnfAspNetCore();
+
+            return services.BuildServiceProvider();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            //Initializes Tnf framework
-            app.UseTnf();
+            app.UseTnfAspNetCore(options =>
+            {
+                options.ConfigureZeroLocalization();
 
-            loggerFactory.AddDebug();
+                // Set connection string
+                var configuration = options.Settings.FromJsonFiles(env.ContentRootPath, $"appsettings.json");
+
+                options.DefaultPageSize(configuration);
+
+                options.DefaultNameOrConnectionString = configuration.GetConnectionString(AppConsts.ConnectionStringName);
+            });
+
+            // Tnf Unit of Work
+            app.UseTnfUnitOfWork();
 
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
 
             // Add CORS middleware before MVC
             app.UseCors("AllowAll");
@@ -50,7 +61,7 @@ namespace Tnf.Zero.Web
             {
                 routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
             });
-            
+
             app.UseSwagger((httpRequest, swaggerDoc) =>
             {
                 swaggerDoc.Host = httpRequest.Host.Value;

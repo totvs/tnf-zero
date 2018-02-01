@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using Tnf.App.AspNetCore.TestBase;
-using Tnf.AspNetCore;
+using Tnf.Zero.Domain;
+using Tnf.Zero.EntityFrameworkCore;
+using Tnf.Zero.Mapper;
 
 namespace Tnf.Zero.Web.Tests.App
 {
@@ -12,17 +13,28 @@ namespace Tnf.Zero.Web.Tests.App
     {
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            // Add support to Entity Framework In Memory
-            services.AddEntityFrameworkInMemoryDatabase();
+            services.AddTnfAspNetCoreSetupTest();
 
-            // Configure Tnf and Dependency Injection
-            return services.AddTnfAppTestBase<AppTestModule, WebModule>();
+            services
+                .AddZeroMapper()
+                .AddZeroDomain();
+
+            services
+                .AddTnfEfCoreSqliteInMemory()
+                .RegisterDbContextToSqliteInMemory<ZeroContext>();
+
+            return services.BuildServiceProvider();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            //Initializes Tnf framework
-            app.UseTnf();
+            app.UseTnfAspNetCoreSetupTest(options =>
+            {
+                // Configure localization
+                options.ConfigureZeroLocalization();
+            });
+
+            app.UseTnfUnitOfWork();
 
             app.UseMvc(routes =>
             {
