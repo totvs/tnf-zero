@@ -1,0 +1,22 @@
+﻿{
+  "culture": "es",
+  "texts": {
+    "ApplicationServiceOnInvalidIdError": "Identificación invalida. Nombre del parámetro: '{0}'",
+    "ApplicationServiceOnInvalidDtoError": "Dto. Inválido Nombre del parámetro: '{0}'",
+
+    "AspNetCoreOnGetAllError": "Error al buscar '{0}'",
+    "AspNetCoreOnGetError": "Error al buscar '{0}'",
+    "AspNetCoreOnPostError": "Error al guardar '{0}'",
+    "AspNetCoreOnPutError": "Error al actualizar '{0}'",
+    "AspNetCoreOnDeleteError": "Error al eliminar '{0}'",
+    "AspNetCoreOnPatchError": "Error en el parche de '{0}'",
+    "AspNetCoreSecurityOnAllOfThesePermissionsMustBeGrantedError": "Todos estos permisos deben ser otorgados",
+
+    "EfCoreOnSaveChanges": "Error al completar la operación",
+
+    "RacIntegrationOnNotAuthorizeError": "Esta solicitud no está autorizada",
+    "RacIntegrationOnError": "Error en la integración con Rac",
+    "AuthorityEndpointIsNotAvailable": "El punto final de la autoridad Rac no está disponible",
+    "RequestAccessTokenResultError": "Solicitud para obtener el resultado del token de acceso con error"
+  }
+}

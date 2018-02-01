@@ -20,8 +20,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\SourceFiles\TnfZero-pt-BR.json" />
     <EmbeddedResource Include="Localization\SourceFiles\TnfZero.json" />
-    <EmbeddedResource Include="Localization\TnfSourceFiles\TnfApp-pt-BR.json" />
-    <EmbeddedResource Include="Localization\TnfSourceFiles\TnfApp.json" />
   </ItemGroup>
 
   <ItemGroup>

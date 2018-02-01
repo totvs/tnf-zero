@@ -1,0 +1,22 @@
+{
+  "culture": "en",
+  "texts": {
+    "ApplicationServiceOnInvalidIdError": "Invalid Id. Name of parameter: '{0}'",
+    "ApplicationServiceOnInvalidDtoError": "Invalid Dto. Name of parameter: '{0}'",
+
+    "AspNetCoreOnGetAllError": "Error fetching '{0}'",
+    "AspNetCoreOnGetError": "Error fetching '{0}'",
+    "AspNetCoreOnPostError": "Error saving '{0}'",
+    "AspNetCoreOnPutError": "Error updating '{0}'",
+    "AspNetCoreOnDeleteError": "Error deleting '{0}'",
+    "AspNetCoreOnPatchError": "Error on patch of '{0}'",
+    "AspNetCoreSecurityOnAllOfThesePermissionsMustBeGrantedError": "All of these permissions must be granted",
+
+    "EfCoreOnSaveChanges": "Error completing operation",
+
+    "RacIntegrationOnNotAuthorizeError": "This request is not authorized",
+    "RacIntegrationOnError": "Error in integration with Rac",
+    "AuthorityEndpointIsNotAvailable": "Rac Authority endpoint is not available",
+    "RequestAccessTokenResultError": "Request for get access token result with error"
+  }
+}
