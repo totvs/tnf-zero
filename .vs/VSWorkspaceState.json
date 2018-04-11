@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\Tnf.Zero.Domain",
+    "\\src\\Tnf.Zero.Domain\\Localization"
   ],
   "SelectedNode": "\\Tnf.Zero.sln",
   "PreviewInSolutionExplorer": false

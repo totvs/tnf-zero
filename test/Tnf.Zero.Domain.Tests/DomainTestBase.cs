@@ -21,7 +21,7 @@ namespace Tnf.Zero.Domain.Tests.App
 
         protected override void PostInitialize(IServiceProvider provider)
         {
-            provider.ConfigureTnf().ConfigureZeroLocalization();
+            provider.ConfigureTnf().UseZeroLocalization();
         }
     }
 }

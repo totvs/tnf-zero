@@ -31,15 +31,10 @@ namespace Tnf.Zero.Web.Tests.App
             app.UseTnfAspNetCoreSetupTest(options =>
             {
                 // Configure localization
-                options.ConfigureZeroLocalization();
+                options.UseZeroLocalization();
             });
 
-            app.UseTnfUnitOfWork();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvcWithDefaultRoute();
         }
     }
 }

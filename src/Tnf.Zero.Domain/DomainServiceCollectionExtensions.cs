@@ -18,7 +18,7 @@ namespace Tnf.Zero.Domain
             return services;
         }
 
-        public static void ConfigureZeroLocalization(this ITnfConfiguration configuration)
+        public static ITnfConfiguration UseZeroLocalization(this ITnfConfiguration configuration)
         {
             configuration.Localization.Languages.Add(new LanguageInfo("en", "English"));
             configuration.Localization.Languages.Add(new LanguageInfo("pt-BR", "Português", isDefault: true));
@@ -40,6 +40,8 @@ namespace Tnf.Zero.Domain
                         "Tnf.Zero.Domain.Localization.TnfSourceFiles"
                     )
             );
+
+            return configuration;
         }
     }
 }
