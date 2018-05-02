@@ -19,27 +19,28 @@ namespace Tnf.Zero.Web
     {
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddCorsAll("AllowAll");
-
             services
+                .AddCorsAll("AllowAll")
                 .AddZeroDomain()
                 .AddZeroMapper()
                 .AddZeroEntityFrameworkCore()
                 .AddTnfAspNetCore();
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Info { Title = "Tnf Zero API", Version = "v1" });
-                c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Tnf.Zero.Web.xml"));
-            });
-
-            services.AddResponseCompression();
+            services
+                .AddResponseCompression()
+                .AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1", new Info { Title = "Tnf Zero API", Version = "v1" });
+                    c.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Tnf.Zero.Web.xml"));
+                });
 
             return services.BuildServiceProvider();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseCors("AllowAll");
+
             app.UseTnfAspNetCore(options =>
             {
                 options.UseZeroLocalization();
@@ -55,17 +56,13 @@ namespace Tnf.Zero.Web
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
-            // Add CORS middleware before MVC
-            app.UseCors("AllowAll");
-
-            app.UseMvcWithDefaultRoute();
-
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tnf Zero API v1");
             });
 
+            app.UseMvcWithDefaultRoute();
             app.UseResponseCompression();
 
             app.Run(context =>
