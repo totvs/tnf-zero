@@ -27,7 +27,7 @@ namespace Tnf.Zero.Domain
             configuration.Localization.Sources.Add(
                 new DictionaryBasedLocalizationSource(AppConsts.LocalizationSourceName,
                     new JsonEmbeddedFileLocalizationDictionaryProvider(
-                        typeof(AppConsts).Assembly,
+                        typeof(DomainServiceCollectionExtensions).Assembly,
                         "Tnf.Zero.Domain.Localization.SourceFiles"
                     )
                 )
