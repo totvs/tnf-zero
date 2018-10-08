@@ -2,12 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Tnf.Zero.Application</AssemblyName>
-    <PackageId>Tnf.Architecture.Application</PackageId>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <RootNamespace>Tnf.Zero.Application</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Tnf.Zero.Common</AssemblyName>
-    <RootNamespace>Tnf.Zero.Common</RootNamespace>
   </PropertyGroup>
 
 </Project>

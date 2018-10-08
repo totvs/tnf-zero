@@ -2,12 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Tnf.Zero.Mapper</AssemblyName>
-    <RootNamespace>Tnf.Zero.Mapper</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Tnf.AutoMapper" Version="2.2.1.20602" />
+    <PackageReference Include="Tnf.AutoMapper" Version="2.3.0.27701" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,15 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <VersionPrefix>1.0.0.0</VersionPrefix>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Tnf.Zero.EntityFrameworkCore</AssemblyName>
-    <PackageId>Tnf.Architecture.EntityFrameworkCore</PackageId>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Tnf.Zero.EntityFrameworkCore</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,15 +11,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet">
-      <Version>1.0.0-*</Version>
-    </DotNetCliToolReference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1" />
-    <PackageReference Include="Tnf.EntityFrameworkCore" Version="2.2.1.20602" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Tnf.EntityFrameworkCore" Version="2.3.0.27701" />
   </ItemGroup>
 
   <ItemGroup>
